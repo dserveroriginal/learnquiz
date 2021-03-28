@@ -16,7 +16,7 @@ public class Main {
         var list = parser.parseFile(new File(file));
 
         for (WordTranslationTypeData data : list) {
-            System.out.println(data);//lol
+            System.out.println(data);//loll
         }
     }
 }
