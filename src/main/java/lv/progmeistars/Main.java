@@ -1,6 +1,5 @@
 package lv.progmeistars;
 
-import lombok.var;
 import lv.progmeistars.parser.CsvParser;
 import lv.progmeistars.parser.WordTranslationTypeData;
 
