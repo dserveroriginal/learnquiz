@@ -1,7 +1,6 @@
 package lv.progmeistars.parser;
 
 import com.opencsv.CSVReader;
-import lombok.var;
 
 import java.io.File;
 import java.io.FileReader;
