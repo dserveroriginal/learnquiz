@@ -1,6 +1,7 @@
 package lv.progmeistars;
 
 import lv.progmeistars.parser.CsvParser;
+import lv.progmeistars.parser.ScoreTypeData;
 import lv.progmeistars.parser.WordTranslationTypeData;
 
 import java.io.File;
@@ -18,7 +19,7 @@ public class Main {
 
             if (scanner.nextInt() == 1) {
                 var file = Main.class.getClassLoader().getResource("words.csv").getFile();
-                var list = parser.parseFile(new File(file));
+                var list = parser.parseWordFile(new File(file));
 
                 for (WordTranslationTypeData data : list) {
                     System.out.println(data);
@@ -26,11 +27,11 @@ public class Main {
             } else {
 
                 var scoreFile = Main.class.getClassLoader().getResource("score.csv").getFile();
-                var scoreList = parser.parseFile(new File(scoreFile));
+                var scoreList = parser.parseScoreFile(new File(scoreFile));
 
                 System.out.println();
 
-                for (WordTranslationTypeData data : scoreList) {
+                for (ScoreTypeData data : scoreList) {
                     System.out.println(data);
                 }
             }
