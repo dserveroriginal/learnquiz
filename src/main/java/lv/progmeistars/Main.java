@@ -1,6 +1,9 @@
 package lv.progmeistars;
 
+<<<<<<< HEAD
 import lv.progmeistars.parser.CommonTypeData;
+=======
+>>>>>>> master
 import lv.progmeistars.parser.CsvParser;
 
 import java.io.File;
