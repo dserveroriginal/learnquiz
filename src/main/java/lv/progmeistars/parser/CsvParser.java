@@ -12,30 +12,14 @@ import java.util.List;
 
 public class CsvParser {
 
-    public List<WordTranslationTypeData> parseWordFile(File file) {
+    public List<CommonTypeData> parseFile(File file) {
         try {
             FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
             List<String[]> lines = readAll(fileReader);
 
-            var list = new ArrayList<WordTranslationTypeData>();
+            var list = new ArrayList<CommonTypeData>();
             for (String[] line : lines) {
-                WordTranslationTypeData data = wordMap(line);
-                list.add(data);
-            }
-
-            return list;
-        } catch (IOException e) {
-            throw new RuntimeException("Could not read or parse file", e);
-        }
-    }
-    public List<ScoreTypeData> parseScoreFile(File file) {
-        try {
-            FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
-            List<String[]> lines = readAll(fileReader);
-
-            var list = new ArrayList<ScoreTypeData>();
-            for (String[] line : lines) {
-                ScoreTypeData data = scoreMap(line);
+                CommonTypeData data = map(line);
                 list.add(data);
             }
 
@@ -53,30 +37,18 @@ public class CsvParser {
         return list;
     }
 
-    private WordTranslationTypeData wordMap(String[] line) {
-        String source = line[0];
-        String translated = line[1];
-        String type = line[2];
+    private CommonTypeData map(String[] line) {
+        String firstVariable = line[0];
+        String secondVariable = line[1];
+        String thirdVariable = line[2];
 
-        var to = new WordTranslationTypeData();
+        var to = new CommonTypeData();
 
-        to.setSourceLanguage(source);
-        to.setTranslationLanguage(translated);
-        to.setWordType(type);
-
-        return to;
-    }
-    private ScoreTypeData scoreMap(String[] line) {
-        String name = line[0];
-        String score = line[1];
-        String tryCount = line[2];
-
-        var to = new ScoreTypeData();
-
-        to.setName(name);
-        to.setScore(score);
-        to.setTryCount(tryCount);
+        to.setFirstVariable(firstVariable);
+        to.setSecondVariable(secondVariable);
+        to.setThirdVariable(thirdVariable);
 
         return to;
     }
+
 }
